@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Earned Seat Initiative</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Earned Seat Initiative is a five-step networking, confidence and career-readiness program for students. Prepare. Connect. Take your seat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;800&family=DM+Serif+Display:ital@0;1&display=swap">
+<style>
+/* Layout: the logo's staircase. Gray steps rise to navy, and the gold chair (the seat) sits at the top. ESI brand kit: navy, gold, ivory, slate. */
+:root {
+  --ground: #f6f4ee;      /* ivory */
+  --surface: #ffffff;
+  --ink: #14213d;         /* navy */
+  --ink-soft: #3a4560;    /* slate */
+  --line: #dedbd2;
+  --gold: #b8862b;        /* gold on light */
+  --step-1: #a7aab0;
+  --step-2: #848a95;
+  --step-3: #575f71;
+  --step-4: #14213d;
+  --band: #14213d;
+  --band-ink: #f6f4ee;
+  --band-gold: #d4a23a;
+  --on-gold: #14213d;
+  --wordmark: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #14213d; --surface: #1b2a4a; --ink: #f6f4ee; --ink-soft: #c3c7d1; --line: #2c3a5a;
+    --gold: #d4a23a; --step-1: #575f71; --step-2: #7a808c; --step-3: #a7aab0; --step-4: #d4d5d4;
+    --band: #0d1830; --band-ink: #f6f4ee; --band-gold: #d4a23a; --on-gold: #14213d;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #14213d; --surface: #1b2a4a; --ink: #f6f4ee; --ink-soft: #c3c7d1; --line: #2c3a5a;
+  --gold: #d4a23a; --step-1: #575f71; --step-2: #7a808c; --step-3: #a7aab0; --step-4: #d4d5d4;
+  --band: #0d1830; --band-ink: #f6f4ee; --band-gold: #d4a23a; --on-gold: #14213d;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 1rem; line-height: 1.6; }
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+/* Lockup (matches the Step Seat logo) */
+.lockup { display: flex; align-items: flex-end; gap: 12px; text-decoration: none; color: var(--ink); }
+.mark { width: 46px; height: auto; flex: none; }
+.mark .s1 { fill: var(--step-1); } .mark .s2 { fill: var(--step-2); } .mark .s3 { fill: var(--step-3); } .mark .s4 { fill: var(--step-4); } .mark .seat { fill: var(--gold); }
+.lockup-text { display: flex; flex-direction: column; line-height: 1; padding-bottom: 1px; }
+.lockup-name { font-family: var(--wordmark); font-weight: 800; font-size: 1.12rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.lockup-sub { font-family: var(--wordmark); font-weight: 500; font-size: 0.64rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--ink-soft); margin-top: 5px; }
+
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; flex-wrap: wrap; border-bottom: 1px solid var(--line); }
+.status { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); border: 1.5px solid var(--gold); padding: 6px 12px; border-radius: 2px; }
+
+/* Hero */
+.hero .wrap { padding-block: clamp(44px, 7vw, 92px) clamp(36px, 5vw, 60px); display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: end; }
+.hero h1 { font-family: var(--display); font-weight: 400; margin: 0; font-size: clamp(2.9rem, 1.5rem + 5.6vw, 5.6rem); line-height: 1; letter-spacing: -0.005em; }
+.hero h1 span { display: block; }
+.hero h1 span:nth-child(2) { padding-left: 0.55em; }
+.hero h1 span:nth-child(3) { padding-left: 1.1em; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.rule { height: 2px; width: 72px; background: var(--gold); margin: 0 0 18px; }
+.lede { font-size: 1.12rem; color: var(--ink-soft); max-width: 36ch; margin: 0 0 24px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; font: 600 0.95rem var(--body); letter-spacing: 0.02em; padding: 13px 20px; border-radius: 3px; text-decoration: none; border: 1.5px solid var(--ink); cursor: pointer; }
+.btn-primary { background: var(--ink); color: var(--ground); }
+.btn-primary:hover { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Section heads */
+section.block .wrap { padding-block: clamp(48px, 6vw, 76px); border-top: 1px solid var(--line); }
+.eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin: 0 0 12px; }
+h2 { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem); line-height: 1.05; margin: 0 0 14px; text-wrap: balance; }
+.section-intro { color: var(--ink-soft); max-width: 60ch; margin: 0 0 40px; }
+
+/* The five steps, colored like the logo's bars */
+.stair { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; align-items: end; }
+.stair li { padding: 18px 16px 20px; display: flex; flex-direction: column; gap: 6px; min-width: 0; color: #f6f4ee; }
+.stair li:nth-child(1) { min-height: 180px; background: var(--step-1); color: #14213d; }
+.stair li:nth-child(2) { min-height: 225px; background: var(--step-2); color: #14213d; }
+.stair li:nth-child(3) { min-height: 270px; background: var(--step-3); }
+.stair li:nth-child(4) { min-height: 315px; background: var(--step-4); }
+.stair li:nth-child(5) { min-height: 360px; background: var(--gold); color: #14213d; }
+:root[data-theme="dark"] .stair li:nth-child(4) { color: #14213d; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .stair li:nth-child(4) { color: #14213d; } }
+.step-num { font-family: var(--display); font-size: 2.3rem; line-height: 1; }
+.stair h3 { margin: 0; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+.stair p { margin: 0; font-size: 0.92rem; line-height: 1.5; opacity: 0.92; }
+
+/* Who it's for + how it runs */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); }
+.split > div { min-width: 0; }
+.checks { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+.checks li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; }
+.checks li::before { content: ""; width: 12px; height: 12px; margin-top: 7px; background: var(--gold); }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 18px; margin: 0; }
+.facts div { border-top: 2px solid var(--ink); padding-top: 10px; min-width: 0; }
+.facts dt { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-soft); }
+.facts dd { margin: 6px 0 0; font-family: var(--display); font-size: 1.65rem; line-height: 1.1; }
+.facts dd small { display: block; font-family: var(--body); font-size: 0.86rem; color: var(--ink-soft); margin-top: 4px; line-height: 1.4; }
+
+/* Contact band (navy, like the badge) */
+.band { background: var(--band); color: var(--band-ink); }
+.band .wrap { padding-block: clamp(44px, 6vw, 68px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 28px; }
+.band-copy { display: flex; gap: 22px; align-items: center; min-width: 0; max-width: 620px; }
+.badge { width: 84px; height: 84px; flex: none; }
+.band h2 { margin: 0 0 6px; }
+.band p { margin: 0; opacity: 0.85; }
+.email-box { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--band-gold); border-radius: 3px; padding: 8px 8px 8px 16px; flex-wrap: wrap; max-width: 100%; }
+.email-box a { color: var(--band-ink); font-weight: 600; text-decoration: none; word-break: break-all; }
+.email-box button { font: 600 0.86rem var(--body); letter-spacing: 0.02em; background: var(--band-gold); color: var(--on-gold); border: 0; border-radius: 2px; padding: 9px 14px; cursor: pointer; }
+
+footer .wrap { padding-block: 28px 36px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: var(--ink-soft); font-size: 0.86rem; }
+footer .tag { font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.72rem; color: var(--ink); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .stair li { animation: rise 0.7s cubic-bezier(.2,.7,.2,1) both; }
+  .stair li:nth-child(2) { animation-delay: .08s; } .stair li:nth-child(3) { animation-delay: .16s; }
+  .stair li:nth-child(4) { animation-delay: .24s; } .stair li:nth-child(5) { animation-delay: .32s; }
+  @keyframes rise { from { transform: translateY(14px); } to { transform: none; } }
+}
+@media (max-width: 860px) {
+  .hero .wrap, .split { grid-template-columns: 1fr; }
+  .stair { grid-template-columns: 1fr; gap: 6px; }
+  .stair li:nth-child(n) { min-height: 0; }
+  .stair li:nth-child(1) { margin-right: 32%; } .stair li:nth-child(2) { margin-right: 24%; }
+  .stair li:nth-child(3) { margin-right: 16%; } .stair li:nth-child(4) { margin-right: 8%; }
+}
+@media (max-width: 440px) {
+  .facts { grid-template-columns: 1fr; }
+  .stair li:nth-child(n) { margin-right: 0; }
+  .band-copy { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="lockup" href="#top" aria-label="Earned Seat Initiative home">
+      <svg class="mark" viewBox="85 134 119 106" aria-hidden="true">
+        <rect class="s1" x="85.9" y="223" width="16.8" height="16.8"/>
+        <rect class="s2" x="107" y="210.5" width="16.6" height="29.3"/>
+        <rect class="s3" x="127.9" y="197.8" width="16.8" height="42"/>
+        <rect class="s4" x="149" y="185.3" width="16.8" height="54.5"/>
+        <rect class="seat" x="169.9" y="172.8" width="6.3" height="67"/>
+        <rect class="seat" x="169.9" y="172.8" width="33.6" height="8.2"/>
+        <rect class="seat" x="195.1" y="134.9" width="8.4" height="104.9"/>
+      </svg>
+      <span class="lockup-text"><span class="lockup-name">Earned Seat</span><span class="lockup-sub">Initiative</span></span>
+    </a>
+    <span class="status">Applications opening soon</span>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1><span>Prepare.</span><span>Connect.</span><span>Take your <em>seat.</em></span></h1>
+      <div>
+        <div class="rule" aria-hidden="true"></div>
+        <p class="lede">An 8-week program that helps students build the confidence, network and professional presence to walk into any room ready.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:david@earnedseat.org?subject=Earned%20Seat%20Initiative%20interest">Get notified when applications open</a>
+          <a class="btn btn-ghost" href="#steps">See the five steps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="steps">
+    <div class="wrap">
+      <p class="eyebrow">The program</p>
+      <h2>Five steps up to your seat</h2>
+      <p class="section-intro">Each cycle moves through the same five steps, from knowing where you stand to keeping the connections you make. Students of any major are welcome.</p>
+      <ol class="stair">
+        <li><span class="step-num">1</span><h3>Evaluation</h3><p>Take stock of your strengths, goals and where you want to go.</p></li>
+        <li><span class="step-num">2</span><h3>Optimization</h3><p>Sharpen your resume, profiles and professional headshot.</p></li>
+        <li><span class="step-num">3</span><h3>Cultivation</h3><p>Learn to start conversations and build real relationships.</p></li>
+        <li><span class="step-num">4</span><h3>Application</h3><p>Practice with mentors, then network at a real event.</p></li>
+        <li><span class="step-num">5</span><h3>Consolidation</h3><p>Follow up, keep your connections and take your seat.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Who it's for</p>
+        <h2>Built for students starting out</h2>
+        <ul class="checks">
+          <li><span>High school and college students, in separate cohorts so everyone learns at the right level</span></li>
+          <li><span>Any major, and no business experience needed</span></li>
+          <li><span>Anyone ready to show up, put in the work and grow their network</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">How it runs</p>
+        <h2>Small groups, real practice</h2>
+        <dl class="facts">
+          <div><dt>Length</dt><dd>8 weeks<small>16 sessions, two per week</small></dd></div>
+          <div><dt>Format</dt><dd>Hybrid<small>Starts virtual, moves in person for hands-on work</small></dd></div>
+          <div><dt>Week 7</dt><dd>A real event<small>Students network at a professional event</small></dd></div>
+          <div><dt>Group size</dt><dd>5 students<small>Per cohort to start</small></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="contact">
+    <div class="wrap">
+      <div class="band-copy">
+        <svg class="badge" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="47" fill="none" stroke="#f6f4ee" stroke-width="3"/>
+          <text x="50" y="57" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="30" fill="#f6f4ee">ESI</text>
+          <rect x="29" y="70" width="9" height="3" fill="#7a808c"/>
+          <rect x="40" y="68" width="9" height="5" fill="#a7aab0"/>
+          <rect x="51" y="66" width="9" height="7" fill="#d4d5d4"/>
+          <rect x="62" y="62" width="9" height="11" fill="#d4a23a"/>
+        </svg>
+        <div>
+          <h2>The first cohort is coming</h2>
+          <p>Applications haven't opened yet. Email to get notified, or reach out if you're a school, library or community partner.</p>
+        </div>
+      </div>
+      <div class="email-box">
+        <a id="email" href="mailto:david@earnedseat.org">david@earnedseat.org</a>
+        <button type="button" id="copy-email">Copy email</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="tag">Prepare. Connect. Take your seat.</span>
+    <span>© 2026 Earned Seat Initiative · Founded by David Johnson</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('copy-email').addEventListener('click', function () {
+  var btn = this, text = 'david@earnedseat.org';
+  function done() { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy email'; }, 1800); }
+  function fallback() {
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected';
+  }
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+});
+</script>
+</body>
+</html>
